@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Widget Docs - Documentazione Completa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Flutter Widget Docs</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Cerca widget, attributi o esempi..." class="search-input">
+                <div id="search-results" class="search-results hidden"></div>
+            </div>
+            <nav class="breadcrumbs" id="breadcrumbs">
+                <span class="breadcrumb-item active">Introduzione</span>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Guida</h3>
+                    <ul>
+                        <li><a href="#introduzione" data-section="introduzione">Introduzione</a></li>
+                        <li><a href="#stateless-vs-stateful" data-section="stateless-vs-stateful">StatelessWidget vs StatefulWidget</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Layout Base</h3>
+                    <ul>
+                        <li><a href="#scaffold" data-section="scaffold">Scaffold</a></li>
+                        <li><a href="#container" data-section="container">Container</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Layout Flex</h3>
+                    <ul>
+                        <li><a href="#row" data-section="row">Row</a></li>
+                        <li><a href="#column" data-section="column">Column</a></li>
+                        <li><a href="#expanded" data-section="expanded">Expanded</a></li>
+                        <li><a href="#flexible" data-section="flexible">Flexible</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Contenuto</h3>
+                    <ul>
+                        <li><a href="#text" data-section="text">Text</a></li>
+                        <li><a href="#image" data-section="image">Image</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Liste</h3>
+                    <ul>
+                        <li><a href="#listview" data-section="listview">ListView</a></li>
+                        <li><a href="#gridview" data-section="gridview">GridView</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Posizionamento</h3>
+                    <ul>
+                        <li><a href="#stack" data-section="stack">Stack</a></li>
+                        <li><a href="#positioned" data-section="positioned">Positioned</a></li>
+                        <li><a href="#padding" data-section="padding">Padding</a></li>
+                        <li><a href="#align" data-section="align">Align</a></li>
+                        <li><a href="#center" data-section="center">Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Widget Navigazione</h3>
+                    <ul>
+                        <li><a href="#appbar" data-section="appbar">AppBar</a></li>
+                        <li><a href="#drawer" data-section="drawer">Drawer</a></li>
+                        <li><a href="#bottomnavigationbar" data-section="bottomnavigationbar">BottomNavigationBar</a></li>
+                        <li><a href="#floatingactionbutton" data-section="floatingactionbutton">FloatingActionButton</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Risorse</h3>
+                    <ul>
+                        <li><a href="#tips" data-section="tips">Tips & Best Practices</a></li>
+                        <li><a href="#comparisons" data-section="comparisons">Confronti tra Widget</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content" id="main-content">
+            <!-- Introduzione -->
+            <section id="introduzione" class="content-section active">
+                <div class="content-header">
+                    <h1>Introduzione a Flutter</h1>
+                    <p class="lead">Una guida completa ai widget Flutter per sviluppatori di tutti i livelli</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <h2>Cos'è Flutter?</h2>
+                        <p>Flutter è un framework UI open-source di Google per creare applicazioni native per mobile, web e desktop da un singolo codebase. Utilizza il linguaggio Dart e un approccio dichiarativo per costruire interfacce utente.</p>
+                        
+                        <h3>Caratteristiche principali:</h3>
+                        <ul>
+                            <li><strong>Singolo codebase:</strong> Scrivi una volta, esegui ovunque</li>
+                            <li><strong>Performance native:</strong> Compilazione diretta in codice nativo</li>
+                            <li><strong>Hot Reload:</strong> Sviluppo rapido con aggiornamenti istantanei</li>
+                            <li><strong>Widget ricchi:</strong> Libreria estesa di widget personalizzabili</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h2>Come navigare questa documentazione</h2>
+                        <div class="tips-grid">
+                            <div class="tip-item">
+                                <h4>🔍 Ricerca</h4>
+                                <p>Usa la barra di ricerca in alto per trovare rapidamente widget, attributi o esempi specifici.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📋 Menu laterale</h4>
+                                <p>Naviga attraverso le categorie di widget usando il menu laterale organizzato per tipologia.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📄 Breadcrumbs</h4>
+                                <p>Usa i breadcrumbs per tornare rapidamente alle sezioni precedenti.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📋 Codice copiabile</h4>
+                                <p>Tutti gli esempi di codice possono essere copiati con un singolo click.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h2>Struttura dei Widget Flutter</h2>
+                        <div class="image-container">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/b46e0aab1bfb196ce38aadc9b5e2e6ec/cf141889-b5e2-4a16-a8e8-3184787d0f01/0e54d496.png" alt="Struttura gerarchica dei Widget Flutter" class="responsive-image">
+                            <p class="image-caption">Struttura gerarchica dei Widget Flutter per categoria</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- StatelessWidget vs StatefulWidget -->
+            <section id="stateless-vs-stateful" class="content-section">
+                <div class="content-header">
+                    <h1>StatelessWidget vs StatefulWidget</h1>
+                    <p class="lead">Comprendi le differenze fondamentali tra i due tipi principali di widget</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <div class="image-container">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/b46e0aab1bfb196ce38aadc9b5e2e6ec/ce5bd373-bcd3-4bd5-a0d1-84f3a1ed0abd/f75603e4.png" alt="Tabella comparativa StatelessWidget vs StatefulWidget" class="responsive-image">
+                            <p class="image-caption">Confronto dettagliato tra StatelessWidget e StatefulWidget</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widgets-comparison">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>StatelessWidget</h2>
+                            <p>I StatelessWidget sono widget immutabili che non possono cambiare il loro stato una volta creati.</p>
+                            
+                            <h3>Caratteristiche:</h3>
+                            <ul>
+                                <li>Immutabili</li>
+                                <li>Non dipendono da dati dinamici</li>
+                                <li>Più performanti</li>
+                                <li>Si ricostruiscono solo quando il parent cambia</li>
+                            </ul>
+
+                            <h3>Esempio di codice:</h3>
+                            <div class="code-block">
+                                <button class="copy-button" onclick="copyCode(this)">📋 Copia</button>
+                                <pre><code class="language-dart">class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text('Ciao Flutter!');
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>StatefulWidget</h2>
+                            <p>I StatefulWidget sono widget che possono cambiare il loro stato durante il runtime.</p>
+                            
+                            <h3>Caratteristiche:</h3>
+                            <ul>
+                                <li>Mutabili</li>
+                                <li>Gestiscono stato interno</li>
+                                <li>Possono ricostruire l'UI</li>
+                                <li>Utilizzano setState()</li>
+                            </ul>
+
+                            <h3>Esempio di codice:</h3>
+                            <div class="code-block">
+                                <button class="copy-button" onclick="copyCode(this)">📋 Copia</button>
+                                <pre><code class="language-dart">class MyWidget extends StatefulWidget {
+  @override
+  _MyWidgetState createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State&lt;MyWidget&gt; {
+  int counter = 0;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('Contatore: $counter'),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+          child: Text('Incrementa'),
+        ),
+      ],
+    );
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Widget sections will be dynamically loaded -->
+            <div id="widget-sections"></div>
+
+            <!-- Tips & Best Practices -->
+            <section id="tips" class="content-section">
+                <div class="content-header">
+                    <h1>Tips & Best Practices</h1>
+                    <p class="lead">Consigli avanzati per sviluppare con Flutter</p>
+                </div>
+
+                <div class="tips-categories">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Performance</h2>
+                            <ul>
+                                <li>Usa <code>const</code> constructor quando possibile per widget immutabili</li>
+                                <li><code>ListView.builder</code> per liste grandi invece di ListView con children</li>
+                                <li>Evita di ricostruire widget pesanti, usa chiavi per l'ottimizzazione</li>
+                                <li>Separa widget in componenti riutilizzabili</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Layout</h2>
+                            <ul>
+                                <li>Row e Column per layout lineari, Stack per sovrapposizioni</li>
+                                <li>Expanded e Flexible per distribuzione spazio in Row/Column</li>
+                                <li>SingleChildScrollView per contenuto che può traboccare</li>
+                                <li>MediaQuery per layout responsive</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Gestione Stato</h2>
+                            <ul>
+                                <li>Usa StatelessWidget quando possibile per performance</li>
+                                <li>setState() per stato locale semplice</li>
+                                <li>Provider, Bloc o Riverpod per gestione stato complessa</li>
+                                <li>Evita setState() in build() per evitare loop infiniti</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparisons -->
+            <section id="comparisons" class="content-section">
+                <div class="content-header">
+                    <h1>Confronti tra Widget</h1>
+                    <p class="lead">Tabelle comparative per scegliere il widget giusto</p>
+                </div>
+
+                <div class="comparison-tables">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Row vs Column</h2>
+                            <p>Differenze nei layout lineari</p>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Caratteristica</th>
+                                        <th>Row</th>
+                                        <th>Column</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Asse principale</td>
+                                        <td>Orizzontale</td>
+                                        <td>Verticale</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Asse trasversale</td>
+                                        <td>Verticale</td>
+                                        <td>Orizzontale</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Utilizzo ideale</td>
+                                        <td>Layout orizzontali</td>
+                                        <td>Layout verticali</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Expanded vs Flexible</h2>
+                            <p>Controllo dello spazio nei layout flex</p>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Caratteristica</th>
+                                        <th>Expanded</th>
+                                        <th>Flexible</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Comportamento</td>
+                                        <td>Forza il figlio a occupare tutto lo spazio</td>
+                                        <td>Permette al figlio di essere più piccolo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FlexFit predefinito</td>
+                                        <td>FlexFit.tight</td>
+                                        <td>FlexFit.loose o tight</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Controllo</td>
+                                        <td>Shortcut per Flexible</td>
+                                        <td>Maggiore controllo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
